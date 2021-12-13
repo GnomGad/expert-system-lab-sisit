@@ -1,21 +1,35 @@
 <template>
-  <div id="answer-area">
-
+  <div id="v-answer-block">
+    <h2>{{text}}</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: "answer-block"
+  name: "v-answer-block",
+  props:{
+    text:{
+      type:String,
+      default(){
+        return "";
+      }
+    }
+  }
 }
 </script>
 
 <style >
-#answer-area {
-  width: 100%;
+#v-answer-block {
+  width: 80%;
   border: 5px solid deepskyblue;
-  padding: 50px;
+  padding: 20px;
   margin-bottom: 20px;
   border-radius: 25px
+}
+
+h2{
+  font-size: 38px;
+  text-transform: uppercase;
+  margin: 5px;
 }
 </style>
