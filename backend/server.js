@@ -26,6 +26,7 @@ app.get("/states/:num", function(req, res){
         res.json(data);
     });
 });
+
 app.listen(process.env.PORT, process.env.HOST,()=>{
     console.log(`Сервер запущен по http://${process.env.HOST}:${process.env.PORT}/`);
 });
