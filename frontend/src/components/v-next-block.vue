@@ -1,7 +1,7 @@
 <template>
-  <div id="v-next-block">
+  <button id="v-next-block">
     <h3>{{text}}</h3>
-  </div>
+  </button>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
       default(){
         return "";
       }
-    }
+    },
   }
 }
 </script>

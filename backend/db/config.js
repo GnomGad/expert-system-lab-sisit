@@ -16,6 +16,7 @@ module.exports = {
         password: dbPassword,
         dialect: 'postgres',
         port: dbPort,
+        logging: false,
         dialectOptions: {
             useUTC: true
         }

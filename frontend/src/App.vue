@@ -9,7 +9,6 @@
         :key="next.id"
         :text="next.answer"
     />
-
   </div>
 </template>
 
@@ -32,23 +31,26 @@ export default {
     }
   },
   methods:{
-    getAnswerData(num){
-      // FIXME: В будущем брать из env файла
-      let path = 'http://192.168.0.102:3050/states/'
-      return axios(path+num, {method: 'GET'})
-          .then((res)=>{
-            //FIXME: Надо нормально организовать это дерьмо
-            this.text = res.data[1].answer;
-            this.text = res.data[1].answer;
-            this.next_cases = res.data;
+    getStates(num){
+      return axios(process.env.VUE_APP_BACKEND + '/states/' + num, {
+        method: 'GET'
       })
+          .then((res)=>{
+            res.data.forEach((el)=>{
+              if(el.next_num){
+                this.next_cases.push(el);
+                return;
+              }
+                this.text = el.answer;
+            });
+          })
           .catch((err)=>{
             console.log("ERROR:::"+err)
           })
-    }
+    },
   },
   mounted() {
-    this.getAnswerData(0)
+    this.getStates(0)
   }
 }
 </script>

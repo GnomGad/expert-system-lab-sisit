@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors());
 
-
+connectDb();
 /**
  * Вернет все объекты из state_table с указанным num
  */
