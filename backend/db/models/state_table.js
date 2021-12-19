@@ -22,5 +22,7 @@ module.exports = State_table = db.define("state_table", {
     answer: {
         type: Sequelize.STRING,
         allowNull: false
-    }
+    },
+}, { 
+    timestamps: false,
 });
