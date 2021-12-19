@@ -4,11 +4,15 @@
         :text="text"
     />
 
-    <v-next-block
+    <div class="answers-block"
         v-for="next in next_cases"
         :key="next.id"
-        :text="next.answer"
-    />
+        @click="setState(next.next_num)">
+      <v-next-block
+          :text="next.answer"
+      />
+    </div>
+
   </div>
 </template>
 
@@ -31,12 +35,14 @@ export default {
     }
   },
   methods:{
-    getStates(num){
+    setState(num){
       return axios(process.env.VUE_APP_BACKEND + '/states/' + num, {
         method: 'GET'
       })
           .then((res)=>{
+            this.next_cases=[];
             res.data.forEach((el)=>{
+
               if(el.next_num){
                 this.next_cases.push(el);
                 return;
@@ -50,7 +56,7 @@ export default {
     },
   },
   mounted() {
-    this.getStates(0)
+    this.setState(0)
   }
 }
 </script>
@@ -70,5 +76,10 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+.answers-block{
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 </style>

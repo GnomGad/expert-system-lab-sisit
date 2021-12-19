@@ -1,7 +1,7 @@
 <template>
-  <button id="v-next-block">
+  <div class="v-next-block">
     <h3>{{text}}</h3>
-  </button>
+  </div>
 </template>
 
 <script>
@@ -19,12 +19,16 @@ export default {
 </script>
 
 <style >
-#v-next-block{
+.v-next-block{
   width: 80%;
   border: 4px solid green;
   padding: 2px;
   margin-bottom: 5px;
   border-radius: 5px
+}
+.v-next-block:hover{
+  border: 4px solid #413f3f; /* Ширина, вид и цвет рамки */
+  cursor: pointer;
 }
 h3{
   font-size: 26px;
