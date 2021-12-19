@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --mode development",
+    "pm2": "pm2 start ./dist/server.js --watch=true",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
