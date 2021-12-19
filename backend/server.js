@@ -16,6 +16,7 @@ connectDb();
  * Вернет все объекты из state_table с указанным num
  */
 app.get("/states/:num", function(req, res){
+    console.log('user ip: ',req.ip,' path ',req.originalUrl);
     const state_num = req.params.num;
     State_table.findAll({
         where:{
